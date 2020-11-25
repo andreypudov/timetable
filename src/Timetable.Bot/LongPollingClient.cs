@@ -61,12 +61,11 @@ namespace Timetable.Bot
                 return;
             }
 
-            this.logger.LogInformation(
-                $"Received a text message in chat "
-                + $"{e.Message.Chat.Id} "
-                + $"{e.Message.Chat.Username} "
-                + $"{e.Message.Chat.FirstName} "
-                + $"{e.Message.Chat.LastName}");
+            await this.Log(
+                $"[{e.Message.Chat.Id}] "
+                + $"[{e.Message.Chat.Username}] "
+                + $"[{e.Message.Chat.FirstName} "
+                + $"{e.Message.Chat.LastName}]");
 
             switch (e.Message.Text.Trim())
             {
@@ -92,13 +91,12 @@ namespace Timetable.Bot
                 return;
             }
 
-            this.logger.LogInformation(
-                $"Received a text message in chat "
-                + $"{e.CallbackQuery.Message.Chat.Id} "
-                + $"{e.CallbackQuery.Message.Chat.Username} "
-                + $"{e.CallbackQuery.Message.Chat.FirstName} "
-                + $"{e.CallbackQuery.Message.Chat.LastName} "
-                + $"{e.CallbackQuery.Message.MessageId}");
+            await this.Log(
+                $"[{e.CallbackQuery.Message.Chat.Id}] "
+                + $"[{e.CallbackQuery.Message.Chat.Username}] "
+                + $"[{e.CallbackQuery.Message.Chat.FirstName} "
+                + $"{e.CallbackQuery.Message.Chat.LastName}] "
+                + $"[{e.CallbackQuery.Message.MessageId}]");
 
             try
             {
@@ -146,6 +144,12 @@ namespace Timetable.Bot
                 replyMarkup: keyboard,
                 parseMode: Telegram.Bot.Types.Enums.ParseMode.MarkdownV2,
                 disableWebPagePreview: true).ConfigureAwait(false);
+        }
+
+        private async Task Log(string message)
+        {
+            await MissionMonitor.Publish($"{nameof(Timetable)} {message}");
+            this.logger.LogInformation(message);
         }
     }
 }

@@ -76,12 +76,11 @@ namespace Timetable.Bot
                 return;
             }
 
-            this.logger.LogInformation(
-                $"Received a text message in chat "
-                + $"{update.Message.Chat.Id} "
-                + $"{update.Message.Chat.Username} "
-                + $"{update.Message.Chat.FirstName} "
-                + $"{update.Message.Chat.LastName}");
+            await this.Log(
+                $"[{update.Message.Chat.Id}] "
+                + $"[{update.Message.Chat.Username} "
+                + $"{update.Message.Chat.FirstName}] "
+                + $"[{update.Message.Chat.LastName}]");
 
             switch (update.Message.Text.Trim())
             {
@@ -107,13 +106,12 @@ namespace Timetable.Bot
                 return;
             }
 
-            this.logger.LogInformation(
-                $"Received a text message in chat "
-                + $"{update.CallbackQuery.Message.Chat.Id} "
-                + $"{update.CallbackQuery.Message.Chat.Username} "
-                + $"{update.CallbackQuery.Message.Chat.FirstName} "
-                + $"{update.CallbackQuery.Message.Chat.LastName} "
-                + $"{update.CallbackQuery.Message.MessageId}");
+            await this.Log(
+                $"[{update.CallbackQuery.Message.Chat.Id}] "
+                + $"[{update.CallbackQuery.Message.Chat.Username}] "
+                + $"[{update.CallbackQuery.Message.Chat.FirstName} "
+                + $"{update.CallbackQuery.Message.Chat.LastName}] "
+                + $"[{update.CallbackQuery.Message.MessageId}]");
 
             try
             {
@@ -162,6 +160,12 @@ namespace Timetable.Bot
                 replyMarkup: keyboard,
                 parseMode: Telegram.Bot.Types.Enums.ParseMode.MarkdownV2,
                 disableWebPagePreview: true).ConfigureAwait(false);
+        }
+
+        private async Task Log(string message)
+        {
+            await MissionMonitor.Publish($"{nameof(Timetable)} {message}");
+            this.logger.LogInformation(message);
         }
     }
 }
