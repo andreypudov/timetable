@@ -1,0 +1,851 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.Core</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.Core.CompassPoint">
+            <summary>
+            Represents the set of 32 compass points. Each point has an angular range of 11.250 degrees where: middle
+            azimuth is the horizontal angular direction (from north) of the given compass bearing; minimum is the lower
+            angular limit of the compass point; and maximum is the upper angular limit of the compass point.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.North">
+            <summary>
+            North, N, Tramontana, 354.375°, 0.000°, 5.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NorthByEast">
+            <summary>
+            North by east, NbE, Quarto di Tramontana verso Greco, 5.625°, 11.250°, 16.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NorthNortheast">
+            <summary>
+            North-northeast, NNE, Greco-Tramontana, 16.875°, 22.500°, 28.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NortheastByNorth">
+            <summary>
+            Northeast by north, NEbN, Quarto di Greco verso Tramontana, 28.125°, 33.750°, 39.375
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.Northeast">
+            <summary>
+            Northeast, NE, Greco, 39.375°, 45.000°, 50.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NortheastByEast">
+            <summary>
+            Northeast by east, NEbE, Quarto di Greco verso Levante, 50.625°, 56.250°, 61.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.EastNortheast">
+            <summary>
+            East-northeast, ENE, Greco-Levante, 61.875°, 67.500°, 73.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.EastByNorth">
+            <summary>
+            East by north, EbN, Quarto di Levante verso Greco, 73.125°, 78.750°, 84.375°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.East">
+            <summary>
+            East, E, Levante, 84.375°, 90.000°, 95.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.EastBySouth">
+            <summary>
+            East by south, EbS, Quarto di Levante verso Scirocco, 95.625°, 101.250°, 106.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.EastSoutheast">
+            <summary>
+            East-southeast, ESE, Levante-Scirocco, 106.875°, 112.500°, 118.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SoutheastByEast">
+            <summary>
+            Southeast by east, SEbE, Quarto di Scirocco verso Levante, 118.125°, 123.750°, 129.375°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.Southeast">
+            <summary>
+            Southeast, SE, Scirocco, 129.375°, 135.000°, 140.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SoutheastBySouth">
+            <summary>
+            Southeast by south, SEbS, Quarto di Scirocco verso Ostro, 140.625°, 146.250°, 151.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SouthSoutheast">
+            <summary>
+            South-southeast, SSE, Ostro-Scirocco, 151.875°, 157.500°, 163.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SouthByEast">
+            <summary>
+            South by east, SbE, Quarto di Ostro verso Scirocco, 163.125°, 168.750°, 174.375°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.South">
+            <summary>
+            South, S, Ostro, 174.375°, 180.000°, 185.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SouthByWest">
+            <summary>
+            South by west, SbW, Quarto di Ostro verso Libeccio, 185.625°, 191.250°, 196.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SouthSouthwest">
+            <summary>
+            South-southwest, SSW, Ostro-Libeccio, 196.875°, 202.500°, 208.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SouthwestBySouth">
+            <summary>
+            Southwest by south, SWbS, Quarto di Libeccio verso Ostro, 208.125°, 213.750°, 219.375°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.Southwest">
+            <summary>
+            Southwest, SW, Libeccio, 219.375°, 225.000°, 230.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.SouthwestByWest">
+            <summary>
+            Southwest by west, SWbW, Quarto di Libeccio verso Ponente, 230.625°, 236.250°, 241.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.WestSouthwest">
+            <summary>
+            West-southwest, WSW, Ponente-Libeccio, 241.875°, 247.500°, 253.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.WestBySouth">
+            <summary>
+            West by south, WbS, Quarto di Ponente verso Libeccio, 253.125°, 258.750°, 264.375°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.West">
+            <summary>
+            West, W, Ponente, 264.375°, 270.000°, 275.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.WestByNorth">
+            <summary>
+            West by north, WbN, Quarto di Ponente verso Maestro, 275.625°, 281.250°, 286.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.WestNorthwest">
+            <summary>
+            West-northwest, WNW, Maestro-Ponente, 286.875°, 292.500°, 298.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NorthwestByWest">
+            <summary>
+            Northwest by west, NWbW, Quarto di Maestro verso Ponente, 298.125°, 303.750°, 309.375°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.Northwest">
+            <summary>
+            Northwest, NW, Maestro, 309.375°, 315.000°, 320.625°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NorthwestByNorth">
+            <summary>
+            Northwest by north, NWbN, Quarto di Maestro verso Tramontana, 320.625°, 326.250°, 331.875°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NorthNorthwest">
+            <summary>
+            North-northwest, NNW, Maestro-Tramontana, 331.875°, 337.500°, 343.125°
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.CompassPoint.NorthByWest">
+            <summary>
+            North by west, NbW, Quarto di Tramontana verso Maestro, 343.125°, 348.750°, 354.375°
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.CompassPointExtension">
+            <summary>
+            Extends <see cref="T:ParaglidingWeather.Core.CompassPoint"/> enumration by adding factory methods.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.CompassPointExtension.GetAbbreviation(ParaglidingWeather.Core.CompassPoint,System.Globalization.CultureInfo)">
+            <summary>
+            Returns the localized abbreviation for the value of direction.
+            </summary>
+            <param name="point">The instance of <see cref="T:ParaglidingWeather.Core.CompassPoint"/> enum.</param>
+            <param name="culture">An object that represents the culture for which the resource is localized.</param>
+            <returns>Returns the localized abbreviation name.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.IWeatherReport">
+            <summary>
+            Represents a weather forecast entry.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Time">
+            <summary>
+            Gets the value of time.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Temperature">
+            <summary>
+            Gets the value of temperature.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Pressure">
+            <summary>
+            Gets the value of atmospheric pressure.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Humidity">
+            <summary>
+            Gets the value of humidity.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Wind">
+            <summary>
+            Gets the value of wind.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Cloudiness">
+            <summary>
+            Gets the value of cloudiness.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.IWeatherReport.Precipitation">
+            <summary>
+            Gets the value of precipitation.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Cloudiness">
+            <summary>
+            Represents a speed entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.#ctor(System.Double,ParaglidingWeather.Core.Units.Cloudiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Cloudiness"/> struct.
+            </summary>
+            <param name="cloudiness">The value of cloudiness.</param>
+            <param name="unit">The unit of cloudiness.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.op_Equality(ParaglidingWeather.Core.Types.Cloudiness,ParaglidingWeather.Core.Types.Cloudiness)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Cloudiness"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Cloudiness"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.op_Inequality(ParaglidingWeather.Core.Types.Cloudiness,ParaglidingWeather.Core.Types.Cloudiness)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Cloudiness"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Cloudiness"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.GetCloudiness(ParaglidingWeather.Core.Units.Cloudiness)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.Equals(ParaglidingWeather.Core.Types.Cloudiness)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Cloudiness.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Coordinate">
+            <summary>
+            Represents a geographic coordinate.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Coordinate"/> struct.
+            </summary>
+            <param name="latitude">The latitude coordinate of the location.</param>
+            <param name="longitude">The longitude coordinate of the location.</param>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.Coordinate.Latitude">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.Coordinate.Longitude">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.op_Equality(ParaglidingWeather.Core.Types.Coordinate,ParaglidingWeather.Core.Types.Coordinate)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Coordinate"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Coordinate"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.op_Inequality(ParaglidingWeather.Core.Types.Coordinate,ParaglidingWeather.Core.Types.Coordinate)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Coordinate"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Coordinate"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.Equals(ParaglidingWeather.Core.Types.Coordinate)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Coordinate.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Direction">
+            <summary>
+            Represents a compass direction.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Direction"/> struct.
+            </summary>
+            <param name="degree">The value of the compass degree.</param>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.Direction.Degree">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.op_Equality(ParaglidingWeather.Core.Types.Direction,ParaglidingWeather.Core.Types.Direction)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Direction"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Direction"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.op_Inequality(ParaglidingWeather.Core.Types.Direction,ParaglidingWeather.Core.Types.Direction)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Direction"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Direction"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.Equals(ParaglidingWeather.Core.Types.Direction)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Direction.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Humidity">
+            <summary>
+            Represents a humidity entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.#ctor(System.Double,ParaglidingWeather.Core.Units.Humidity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Humidity"/> struct.
+            </summary>
+            <param name="humidity">The value of humidity.</param>
+            <param name="unit">The unit of pressure.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.op_Equality(ParaglidingWeather.Core.Types.Humidity,ParaglidingWeather.Core.Types.Humidity)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Humidity"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Humidity"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.op_Inequality(ParaglidingWeather.Core.Types.Humidity,ParaglidingWeather.Core.Types.Humidity)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Humidity"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Humidity"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.GetHumidity(ParaglidingWeather.Core.Units.Humidity)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.Equals(ParaglidingWeather.Core.Types.Humidity)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Humidity.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.ICloudiness">
+            <summary>
+            Represents a pressure entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.ICloudiness.GetCloudiness(ParaglidingWeather.Core.Units.Cloudiness)">
+            <summary>
+            Returns the value of cloudiness in specified units.
+            </summary>
+            <param name="unit">The unit system to use.</param>
+            <returns>Returns the value of cloudiness.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.ICoordinate">
+            <summary>
+            Represents a geographic coordinate.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.ICoordinate.Latitude">
+            <summary>
+            Gets the latitude value of the geographic coordinate.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.ICoordinate.Longitude">
+            <summary>
+            Gets the longitude value of the geographic coordinate.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.IDirection">
+            <summary>
+            Represents a compass direction.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.IDirection.Degree">
+            <summary>
+            Gets the compass direction in degrees.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.IHumidity">
+            <summary>
+            Represents a pressure entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.IHumidity.GetHumidity(ParaglidingWeather.Core.Units.Humidity)">
+            <summary>
+            Returns the value of humidity in specified units.
+            </summary>
+            <param name="unit">The unit system to use.</param>
+            <returns>Returns the value of humidity.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.IPrecipitation">
+            <summary>
+            Represents a pressure entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.IPrecipitation.GetPrecipitation(ParaglidingWeather.Core.Units.Precipitation)">
+            <summary>
+            Returns the value of precipitation in specified units.
+            </summary>
+            <param name="unit">The unit system to use.</param>
+            <returns>Returns the value of precipitation.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.IPressure">
+            <summary>
+            Represents a pressure entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.IPressure.GetPressure(ParaglidingWeather.Core.Units.Pressure)">
+            <summary>
+            Returns the value of pressure in specified units.
+            </summary>
+            <param name="unit">The unit system to use.</param>
+            <returns>Returns the value of pressure.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.ISpeed">
+            <summary>
+            Represents a speed entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.ISpeed.GetSpeed(ParaglidingWeather.Core.Units.Speed)">
+            <summary>
+            Returns the value of speed in specified units.
+            </summary>
+            <param name="unit">The unit system to use.</param>
+            <returns>Returns the value of speed.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.ITemperature">
+            <summary>
+            Represents a temperature entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.ITemperature.GetTemperature(ParaglidingWeather.Core.Units.Temperature)">
+            <summary>
+            Returns the value of temperature in specified units.
+            </summary>
+            <param name="unit">The unit system to use.</param>
+            <returns>Returns the value of temperature.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.IWind">
+            <summary>
+            Represents a wind entity.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.IWind.Speed">
+            <summary>
+            Gets the value of wind speed.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.IWind.Direction">
+            <summary>
+            Gets the value of wind direction.
+            </summary>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.IWind.Gust">
+            <summary>
+            Gets the value of wind gust.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Precipitation">
+            <summary>
+            Represents a speed entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.#ctor(System.Double,ParaglidingWeather.Core.Units.Precipitation)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Precipitation"/> struct.
+            </summary>
+            <param name="precipitation">The value of precipitation.</param>
+            <param name="unit">The unit of precipitation.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.op_Equality(ParaglidingWeather.Core.Types.Precipitation,ParaglidingWeather.Core.Types.Precipitation)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Precipitation"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Precipitation"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.op_Inequality(ParaglidingWeather.Core.Types.Precipitation,ParaglidingWeather.Core.Types.Precipitation)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Precipitation"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Precipitation"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.GetPrecipitation(ParaglidingWeather.Core.Units.Precipitation)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.Equals(ParaglidingWeather.Core.Types.Precipitation)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Precipitation.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Pressure">
+            <summary>
+            Represents a pressure entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.#ctor(System.Double,ParaglidingWeather.Core.Units.Pressure)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Pressure"/> struct.
+            </summary>
+            <param name="pressure">The value of pressure.</param>
+            <param name="unit">The unit of pressure.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.op_Equality(ParaglidingWeather.Core.Types.Pressure,ParaglidingWeather.Core.Types.Pressure)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Pressure"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Pressure"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.op_Inequality(ParaglidingWeather.Core.Types.Pressure,ParaglidingWeather.Core.Types.Pressure)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Pressure"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Pressure"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.GetPressure(ParaglidingWeather.Core.Units.Pressure)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.Equals(ParaglidingWeather.Core.Types.Pressure)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Pressure.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Speed">
+            <summary>
+            Represents a speed entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.#ctor(System.Double,ParaglidingWeather.Core.Units.Speed)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Speed"/> struct.
+            </summary>
+            <param name="speed">The value of speed.</param>
+            <param name="unit">The unit of speed.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.op_Equality(ParaglidingWeather.Core.Types.Speed,ParaglidingWeather.Core.Types.Speed)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Speed"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Speed"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.op_Inequality(ParaglidingWeather.Core.Types.Speed,ParaglidingWeather.Core.Types.Speed)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Speed"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Speed"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.GetSpeed(ParaglidingWeather.Core.Units.Speed)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.Equals(ParaglidingWeather.Core.Types.Speed)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Speed.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Temperature">
+            <summary>
+            Represents a temperature entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.#ctor(System.Double,ParaglidingWeather.Core.Units.Temperature)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Temperature"/> struct.
+            </summary>
+            <param name="temperature">The value of temperature.</param>
+            <param name="unit">The unit of temperature.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.op_Equality(ParaglidingWeather.Core.Types.Temperature,ParaglidingWeather.Core.Types.Temperature)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Temperature"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Temperature"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.op_Inequality(ParaglidingWeather.Core.Types.Temperature,ParaglidingWeather.Core.Types.Temperature)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Temperature"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Temperature"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.GetTemperature(ParaglidingWeather.Core.Units.Temperature)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.Equals(ParaglidingWeather.Core.Types.Temperature)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Temperature.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Types.Wind">
+            <summary>
+            Represents a wind entity.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.#ctor(ParaglidingWeather.Core.Types.ISpeed,ParaglidingWeather.Core.Types.IDirection,ParaglidingWeather.Core.Types.ISpeed)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.Types.Wind"/> struct.
+            </summary>
+            <param name="speed">The value of wind speend.</param>
+            <param name="direction">The value of wind direction.</param>
+            <param name="gust">The value of wind gust.</param>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.Wind.Speed">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.Wind.Direction">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.Types.Wind.Gust">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.op_Equality(ParaglidingWeather.Core.Types.Wind,ParaglidingWeather.Core.Types.Wind)">
+            <summary>
+            Determines whether two specified strings have the same value.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Wind"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Wind"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is the same as the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.op_Inequality(ParaglidingWeather.Core.Types.Wind,ParaglidingWeather.Core.Types.Wind)">
+            <summary>
+            Determines whether two specified strings have different values.
+            </summary>
+            <param name="left">The first <see cref="T:ParaglidingWeather.Core.Types.Wind"/> to compare, or <c>null</c>.</param>
+            <param name="right">The second <see cref="T:ParaglidingWeather.Core.Types.Wind"/> to compare, or <c>null</c>.</param>
+            <returns><c>true</c> if the value of a is different from the value of b; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.Equals(ParaglidingWeather.Core.Types.Wind)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.Types.Wind.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Units.Cloudiness">
+            <summary>
+            Represents the unit of cloudiness.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.Units.Cloudiness.Relative">
+            <summary>
+             Expressed as a percentage, indicates a fraction of the sky obscured by clouds when observed from a particular location.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Units.Humidity">
+            <summary>
+            Represents the unit of humidity.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.Units.Humidity.Relative">
+            <summary>
+            Expressed as a percentage, indicates a present state of absolute humidity relative to a maximum humidity given the same temperature.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Units.Precipitation">
+            <summary>
+            Represents the unit of precipitation.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.Units.Precipitation.Millimetres">
+            <summary>
+            Millimetres (mm) of liquid water equivalent for the preceeding time interval.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Units.Pressure">
+            <summary>
+            Represents the unit of pressure.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.Units.Pressure.Pascal">
+            <summary>
+            Metric/SI derived unit of pressure used to quantify internal pressure, stress.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Units.Speed">
+            <summary>
+            Represents the unit of speed.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.Units.Speed.MeterPerSecond">
+            <summary>
+            Metric unit of speed.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.Units.Temperature">
+            <summary>
+            Represents the unit of temperature.
+            </summary>
+        </member>
+        <member name="F:ParaglidingWeather.Core.Units.Temperature.Celsius">
+            <summary>
+            Metric unit of speed.
+            </summary>
+        </member>
+        <member name="T:ParaglidingWeather.Core.WeatherReport">
+            <summary>
+            Represents a weather forecast entry.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Core.WeatherReport.#ctor(System.DateTime,ParaglidingWeather.Core.Types.ITemperature,ParaglidingWeather.Core.Types.IPressure,ParaglidingWeather.Core.Types.IHumidity,ParaglidingWeather.Core.Types.IWind,ParaglidingWeather.Core.Types.ICloudiness,ParaglidingWeather.Core.Types.IPrecipitation)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Core.WeatherReport"/> class.
+            </summary>
+            <param name="time">The value of time.</param>
+            <param name="temperature">The value of temperature.</param>
+            <param name="pressure">The value of atmospheric pressure.</param>
+            <param name="humidity">The value of humidity.</param>
+            <param name="wind">The value of wind.</param>
+            <param name="cloudiness">The value of cloudiness.</param>
+            <param name="precipitation">The value of precipitation.</param>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Time">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Temperature">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Pressure">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Humidity">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Wind">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Cloudiness">
+            <inheritdoc/>
+        </member>
+        <member name="P:ParaglidingWeather.Core.WeatherReport.Precipitation">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.WeatherReport.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.WeatherReport.Equals(ParaglidingWeather.Core.WeatherReport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.WeatherReport.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Core.WeatherReport.ToString">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

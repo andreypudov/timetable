@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Timetable.Bot</name>
+    </assembly>
+    <members>
+        <member name="T:Timetable.Bot.Configuration">
+            <summary>
+            Represents application configuration.
+            </summary>
+        </member>
+        <member name="P:Timetable.Bot.Configuration.Token">
+            <summary>
+            Gets or sets authentication token.
+            </summary>
+        </member>
+        <member name="T:Timetable.Bot.LongPollingClient">
+            <summary>
+            Represents the handler of web hook requests.
+            </summary>
+        </member>
+        <member name="M:Timetable.Bot.LongPollingClient.#ctor(Timetable.Bot.Configuration,Microsoft.Extensions.Logging.ILogger{Timetable.Bot.LongPollingClient})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Timetable.Bot.LongPollingClient"/> class.
+            </summary>
+            <param name="configuration">The instance of a application configuration.</param>
+            <param name="logger">The instance of an application logger.</param>
+        </member>
+        <member name="M:Timetable.Bot.LongPollingClient.Run">
+            <summary>
+            The main entry point for the bot.
+            </summary>
+        </member>
+        <member name="T:Timetable.Bot.Program">
+            <summary>
+            An entry point of the application.
+            </summary>
+        </member>
+        <member name="M:Timetable.Bot.Program.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configures the application's services.
+            </summary>
+            <param name="services">Specifies the contract for a collection of service descriptors.</param>
+            <param name="configuration">The instance of a applicaiton configuration.</param>
+        </member>
+        <member name="M:Timetable.Bot.Program.Main">
+            <summary>
+            An entry point method of the application.
+            </summary>
+        </member>
+        <member name="T:Timetable.Bot.Query">
+            <summary>
+            Represents a set of queries supported by the Bot.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.Query.Forecast">
+            <summary>
+            Represents query to receive a five-days weather forecast.
+            </summary>
+        </member>
+        <member name="T:Timetable.Bot.TimetableFormatter">
+            <summary>
+            Timetable formatter that returns a markdown-formatted representation.
+            </summary>
+        </member>
+        <member name="M:Timetable.Bot.TimetableFormatter.Format(System.String)">
+            <summary>
+            Formats a given timetable to markdown representation.
+            </summary>
+            <param name="timetable">The HTML represenation of the timetable.</param>
+            <returns>The markdown representation of the given timetable.</returns>
+        </member>
+        <member name="T:Timetable.Bot.TimetableParser">
+            <summary>
+            Represents the web parser for the source data.
+            </summary>
+        </member>
+        <member name="M:Timetable.Bot.TimetableParser.GetAsync">
+            <summary>
+            Parsers the web page and returns the string representation of the timetable for the first available day.
+            </summary>
+            <returns>The string representation of the timetable for the first available day.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.Helpers</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.Helpers.CompassPointBuilder">
+            <summary>
+            Provides a set of methods to create <see cref="T:ParaglidingWeather.Core.CompassPoint" />.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Helpers.CompassPointBuilder.Get8WindCompassPoint(System.Double)">
+            <summary>
+            Returns the 8-wind compase rose direction for a given degree.
+            </summary>
+            <param name="degree">The value of the compass degree.</param>
+            <returns>The compass point for a give degree.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Helpers.CompassPointBuilder.Get16WindCompassPoint(System.Double)">
+            <summary>
+            Returns the 16-wind compase rose direction for a given degree.
+            </summary>
+            <param name="degree">The value of the compass degree.</param>
+            <returns>The compass point for a give degree.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Helpers.CompassPointBuilder.Get32WindCompassPoint(System.Double)">
+            <summary>
+            Returns the 32-wind compase rose direction for a given degree.
+            </summary>
+            <param name="degree">The value of the compass degree.</param>
+            <returns>The compass point for a give degree.</returns>
+        </member>
+    </members>
+</doc>

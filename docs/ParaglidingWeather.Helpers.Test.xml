@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.Helpers.Test</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.Helpers.Test.CompassPointBuilder">
+            <summary>
+            Represents a test class for <see cref="T:ParaglidingWeather.Helpers.CompassPointBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Helpers.Test.CompassPointBuilder.Get8WindCompassPoint(ParaglidingWeather.Core.CompassPoint,System.Decimal,System.Decimal)">
+            <summary>
+            Represents a test case for <see cref="M:ParaglidingWeather.Helpers.CompassPointBuilder.Get8WindCompassPoint(System.Double)"/> method.
+            </summary>
+            <param name="point">The expected value of compass point.</param>
+            <param name="left">The left boundary of direction in degrees.</param>
+            <param name="right">The right boundary of direction in degrees.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Helpers.Test.CompassPointBuilder.Get16WindCompassPoint(ParaglidingWeather.Core.CompassPoint,System.Decimal,System.Decimal)">
+            <summary>
+            Represents a test case for <see cref="M:ParaglidingWeather.Helpers.CompassPointBuilder.Get16WindCompassPoint(System.Double)"/> method.
+            </summary>
+            <param name="point">The expected value of compass point.</param>
+            <param name="left">The left boundary of direction in degrees.</param>
+            <param name="right">The right boundary of direction in degrees.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Helpers.Test.CompassPointBuilder.Get32WindCompassPoint(ParaglidingWeather.Core.CompassPoint,System.Decimal,System.Decimal)">
+            <summary>
+            Represents a test case for <see cref="M:ParaglidingWeather.Helpers.CompassPointBuilder.Get32WindCompassPoint(System.Double)"/> method.
+            </summary>
+            <param name="point">The expected value of compass point.</param>
+            <param name="left">The left boundary of direction in degrees.</param>
+            <param name="right">The right boundary of direction in degrees.</param>
+        </member>
+    </members>
+</doc>

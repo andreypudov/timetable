@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.AzureFunction</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.AzureFunction.ParaglidingWeatherFunction">
+            <summary>
+            Represents the Azure function processes requests from a Telegram client.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.AzureFunction.ParaglidingWeatherFunction.Run(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Azure HTTP trigger function.
+            </summary>
+            <param name="request">The HTTP request from the client.</param>
+            <param name="logger">The instance of the logger.</param>
+            <returns>The status of the request processing.</returns>
+        </member>
+    </members>
+</doc>

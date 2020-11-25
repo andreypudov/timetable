@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.Providers.SkyMeteo</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteo.SkyMeteoForecastProvider">
+            <summary>
+            Provides a weather forecast using SkyMeteo public API.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteo.SkyMeteoForecastProvider.GetForecast(ParaglidingWeather.Core.Types.Coordinate)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteo.SkyMeteoForecastProvider.GetForecastAsync(ParaglidingWeather.Core.Types.Coordinate)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

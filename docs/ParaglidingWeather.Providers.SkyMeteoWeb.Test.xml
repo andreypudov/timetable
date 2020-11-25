@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.Providers.SkyMeteoWeb.Test</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteoWeb.Test.SkyMeteoWebForecastProvider">
+            <summary>
+            Represents a test class for <see cref="T:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider"/>.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.Test.SkyMeteoWebForecastProvider.GetForecast">
+            <summary>
+            Represents a test case for <see cref="M:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider.GetForecast(ParaglidingWeather.Core.Types.Coordinate)"/> method.
+            </summary>
+        </member>
+    </members>
+</doc>

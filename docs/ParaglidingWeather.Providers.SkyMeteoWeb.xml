@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParaglidingWeather.Providers.SkyMeteoWeb</name>
+    </assembly>
+    <members>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteoWeb.DocumentParser">
+            <summary>
+            Provides methods to parse HTML document.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.DocumentParser.#ctor(HtmlAgilityPack.HtmlDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Providers.SkyMeteoWeb.DocumentParser"/> class.
+            </summary>
+            <param name="document">The HTML document to parse.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.DocumentParser.Parse(System.DateTime)">
+            <summary>
+            Parses the document and returns weather information.
+            </summary>
+            <param name="date">The date of the forecast.</param>
+            <returns>The list of weather reports.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteoWeb.Fetcher">
+            <summary>
+            Provides a methods to fetch content from the web resource.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.Fetcher.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Providers.SkyMeteoWeb.Fetcher"/> class.
+            </summary>
+            <param name="uri">The address of the web page.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.Fetcher.Fetch">
+            <summary>
+            Returns the web page from the specified address.
+            </summary>
+            <returns>The web page document.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.Fetcher.FetchAsync">
+            <summary>
+            Returns the web page from the specified address.
+            </summary>
+            <returns>The web page document.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteoWeb.IFetcher">
+            <summary>
+            Provides a methods to fetch content from the web resource.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.IFetcher.Fetch">
+            <summary>
+            Returns the web page from the specified address.
+            </summary>
+            <returns>The web page document.</returns>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.IFetcher.FetchAsync">
+            <summary>
+            Returns the web page from the specified address.
+            </summary>
+            <returns>The web page document.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteoWeb.NodeParser">
+            <summary>
+            Provides methods to parse HTML node.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.NodeParser.#ctor(HtmlAgilityPack.HtmlNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Providers.SkyMeteoWeb.NodeParser"/> class.
+            </summary>
+            <param name="node">The HTML node to parse.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.NodeParser.Parse(System.DateTime@)">
+            <summary>
+            Parses the node and returns weather information.
+            </summary>
+            <param name="date">The date of the forecast.</param>
+            <returns>The instance of weather reports.</returns>
+        </member>
+        <member name="T:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider">
+            <summary>
+            Provides a weather forecast by fetching a data from a web page of SkyMeteo service.
+            </summary>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider.#ctor(ParaglidingWeather.Providers.SkyMeteoWeb.IFetcher,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider"/> class.
+            </summary>
+            <param name="fetcher">The instance of the data fetcher.</param>
+            <param name="date">The date of the forecast.</param>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider.GetForecast(ParaglidingWeather.Core.Types.Coordinate)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ParaglidingWeather.Providers.SkyMeteoWeb.SkyMeteoWebForecastProvider.GetForecastAsync(ParaglidingWeather.Core.Types.Coordinate)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
