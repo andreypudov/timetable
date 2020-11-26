@@ -41,7 +41,6 @@
             Publishes provided message to the Message monitor channel.
             </summary>
             <param name="message">The value of the message to publish.</param>
-            <returns>The task handling the HTTP publishing request.</returns>
         </member>
         <member name="T:Timetable.Bot.Program">
             <summary>

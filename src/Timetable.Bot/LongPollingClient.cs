@@ -61,7 +61,7 @@ namespace Timetable.Bot
                 return;
             }
 
-            await this.Log(
+            this.Log(
                 $"[{e.Message.Chat.Id}] "
                 + $"[{e.Message.Chat.Username}] "
                 + $"[{e.Message.Chat.FirstName} "
@@ -91,7 +91,7 @@ namespace Timetable.Bot
                 return;
             }
 
-            await this.Log(
+            this.Log(
                 $"[{e.CallbackQuery.Message.Chat.Id}] "
                 + $"[{e.CallbackQuery.Message.Chat.Username}] "
                 + $"[{e.CallbackQuery.Message.Chat.FirstName} "
@@ -146,9 +146,9 @@ namespace Timetable.Bot
                 disableWebPagePreview: true).ConfigureAwait(false);
         }
 
-        private async Task Log(string message)
+        private void Log(string message)
         {
-            await MissionMonitor.Publish($"{nameof(Timetable)} {message}");
+            MissionMonitor.Publish($"{nameof(Timetable)} {message}");
             this.logger.LogInformation(message);
         }
     }

@@ -53,7 +53,7 @@ namespace Timetable.Bot
                         var link = columns[5].SelectNodes("a");
                         if (link?.Count == 1)
                         {
-                            builder.Append($"[Zoom ]({link[0].Attributes["href"].Value})\n");
+                            builder.Append($"[]{link[0].Attributes["href"].Value}\n");
                         }
                     }
 
