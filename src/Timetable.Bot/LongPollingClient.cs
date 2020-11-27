@@ -18,6 +18,7 @@ namespace Timetable.Bot
     public class LongPollingClient
     {
         private readonly ITelegramBotClient client;
+        private readonly Configuration configuration;
         private readonly ILogger logger;
 
         /// <summary>
@@ -27,14 +28,9 @@ namespace Timetable.Bot
         /// <param name="logger">The instance of an application logger.</param>
         public LongPollingClient(Configuration configuration, ILogger<LongPollingClient> logger)
         {
-            // TODO
-            if (configuration == null)
-            {
-                throw new ArgumentNullException(nameof(configuration));
-            }
-
-            this.client = new TelegramBotClient(configuration.Token);
+            this.configuration = configuration;
             this.logger = logger;
+            this.client = new TelegramBotClient(configuration.Token);
         }
 
         /// <summary>
@@ -127,7 +123,7 @@ namespace Timetable.Bot
 
         private async Task OnTimetableAsync(long chatId)
         {
-            var timetable = await TimetableParser.GetAsync();
+            var timetable = await TimetableParser.GetAsync(this.configuration.Login ?? string.Empty, this.configuration.Password ?? string.Empty);
             timetable = TimetableFormatter.Format(timetable);
 
             var keyboard = new InlineKeyboardMarkup(new[]

@@ -9,12 +9,13 @@
             Represents the Azure function processes requests from a Telegram client.
             </summary>
         </member>
-        <member name="M:Timetable.AzureFunction.TimetableFunction.Run(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.Extensions.Logging.ILogger)">
+        <member name="M:Timetable.AzureFunction.TimetableFunction.Run(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.Extensions.Logging.ILogger,Microsoft.Azure.WebJobs.ExecutionContext)">
             <summary>
             Azure HTTP trigger function.
             </summary>
             <param name="request">The HTTP request from the client.</param>
             <param name="logger">The instance of the logger.</param>
+            <param name="context">The applicaiton context.</param>
             <returns>The status of the request processing.</returns>
         </member>
     </members>

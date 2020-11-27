@@ -14,6 +14,16 @@
             Gets or sets authentication token.
             </summary>
         </member>
+        <member name="P:Timetable.Bot.Configuration.Login">
+            <summary>
+            Gets or sets user name to access timetable information.
+            </summary>
+        </member>
+        <member name="P:Timetable.Bot.Configuration.Password">
+            <summary>
+            Gets or sets password to access timetable information.
+            </summary>
+        </member>
         <member name="T:Timetable.Bot.LongPollingClient">
             <summary>
             Represents the handler of web hook requests.
@@ -86,10 +96,12 @@
             Represents the web parser for the source data.
             </summary>
         </member>
-        <member name="M:Timetable.Bot.TimetableParser.GetAsync">
+        <member name="M:Timetable.Bot.TimetableParser.GetAsync(System.String,System.String)">
             <summary>
             Parsers the web page and returns the string representation of the timetable for the first available day.
             </summary>
+            <param name="userName">The username to access the timetable data.</param>
+            <param name="password">The password to access the timetable data.</param>
             <returns>The string representation of the timetable for the first available day.</returns>
         </member>
         <member name="T:Timetable.Bot.WebhookClient">
@@ -97,11 +109,11 @@
             Represents the handler of web hook requests.
             </summary>
         </member>
-        <member name="M:Timetable.Bot.WebhookClient.#ctor(System.String,Microsoft.Extensions.Logging.ILogger)">
+        <member name="M:Timetable.Bot.WebhookClient.#ctor(Timetable.Bot.Configuration,Microsoft.Extensions.Logging.ILogger)">
             <summary>
             Initializes a new instance of the <see cref="T:Timetable.Bot.WebhookClient"/> class.
             </summary>
-            <param name="token">The token of the bot.</param>
+            <param name="configuration">The configuration of the bot.</param>
             <param name="logger">The instance of the logger.</param>
         </member>
         <member name="M:Timetable.Bot.WebhookClient.Update(System.String)">

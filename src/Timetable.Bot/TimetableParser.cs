@@ -20,8 +20,10 @@ namespace Timetable.Bot
         /// <summary>
         /// Parsers the web page and returns the string representation of the timetable for the first available day.
         /// </summary>
+        /// <param name="userName">The username to access the timetable data.</param>
+        /// <param name="password">The password to access the timetable data.</param>
         /// <returns>The string representation of the timetable for the first available day.</returns>
-        public static async Task<string> GetAsync()
+        public static async Task<string> GetAsync(string userName, string password)
         {
             var baseUrl = "http://nngasu.ru/cdb/schedule/student.php?login=yes";
             var formVariables = new List<KeyValuePair<string?, string?>>
@@ -29,8 +31,8 @@ namespace Timetable.Bot
                 new KeyValuePair<string?, string?>("AUTH_FORM", "Y"),
                 new KeyValuePair<string?, string?>("TYPE", "AUTH"),
                 new KeyValuePair<string?, string?>("backurl", "/cdb/schedule/student.php"),
-                new KeyValuePair<string?, string?>("USER_LOGIN", "gr_DAS5.17"),
-                new KeyValuePair<string?, string?>("USER_PASSWORD", "phbrng"),
+                new KeyValuePair<string?, string?>("USER_LOGIN", userName),
+                new KeyValuePair<string?, string?>("USER_PASSWORD", password),
                 new KeyValuePair<string?, string?>("Login", "%C2%EE%E9%F2%E8"),
             };
 
