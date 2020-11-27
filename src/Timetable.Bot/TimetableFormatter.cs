@@ -66,18 +66,6 @@ namespace Timetable.Bot
                 }
             }
 
-            Console.WriteLine(builder
-                .ToString()
-                .Replace("<", "\\<", StringComparison.InvariantCulture)
-                .Replace(">", "\\>", StringComparison.InvariantCulture)
-                .Replace("+", "\\+", StringComparison.InvariantCulture)
-                .Replace("-", "\\-", StringComparison.InvariantCulture)
-                .Replace(".", "\\.", StringComparison.InvariantCulture)
-                .Replace("|", "\\|", StringComparison.InvariantCulture)
-                .Replace("(", "\\(", StringComparison.InvariantCulture)
-                .Replace(")", "\\)", StringComparison.InvariantCulture)
-                .Replace("=", "\\=", StringComparison.InvariantCulture));
-
             return builder
                 .ToString()
                 .Replace("<", "\\<", StringComparison.InvariantCulture)
