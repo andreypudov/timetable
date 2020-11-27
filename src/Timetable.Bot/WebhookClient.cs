@@ -80,9 +80,9 @@ namespace Timetable.Bot
 
             this.Log(
                 $"[{update.Message.Chat.Id}] "
-                + $"[{update.Message.Chat.Username} "
-                + $"{update.Message.Chat.FirstName}] "
-                + $"[{update.Message.Chat.LastName}]");
+                + $"[{update.Message.Chat.Username}] "
+                + $"[{update.Message.Chat.FirstName} "
+                + $"{update.Message.Chat.LastName}]");
 
             switch (update.Message.Text.Trim())
             {
