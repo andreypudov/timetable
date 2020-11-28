@@ -38,7 +38,7 @@ namespace Timetable.Bot
                         break;
                     }
 
-                    builder.Append($"*{row.ChildNodes[0].InnerText}*\n");
+                    builder.Append($"*{GetInnerTextValue(columns[0]).ToUpperInvariant()}*\n\n");
                     titleAdded = true;
                 }
                 else if (columns?.Count == 7)
