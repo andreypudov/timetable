@@ -100,7 +100,7 @@
             <summary>
             Parsers the web page and returns the string representation of the timetable for the first available day.
             </summary>
-            <param name="userName">The username to access the timetable data.</param>
+            <param name="login">The login to access the timetable data.</param>
             <param name="password">The password to access the timetable data.</param>
             <returns>The string representation of the timetable for the first available day.</returns>
         </member>

@@ -145,7 +145,7 @@ namespace Timetable.Bot
 
         private async Task OnTimetableAsync(long chatId)
         {
-            var timetable = await TimetableParser.GetAsync(this.configuration.Login ?? string.Empty, this.configuration.Password ?? string.Empty);
+            var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password);
             timetable = TimetableFormatter.Format(timetable);
 
             var keyboard = new InlineKeyboardMarkup(new[]

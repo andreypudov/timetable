@@ -12,16 +12,16 @@ namespace Timetable.Bot
         /// <summary>
         /// Gets or sets authentication token.
         /// </summary>
-        public string? Token { get; set; }
+        public string Token { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets user name to access timetable information.
         /// </summary>
-        public string? Login { get; set; }
+        public string Login { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets password to access timetable information.
         /// </summary>
-        public string? Password { get; set; }
+        public string Password { get; set; } = string.Empty;
     }
 }
