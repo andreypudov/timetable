@@ -5,6 +5,7 @@
 namespace Timetable.Bot
 {
     using System;
+    using System.Net;
     using System.Text;
     using System.Threading.Tasks;
     using Microsoft.Extensions.Logging;
@@ -58,10 +59,11 @@ namespace Timetable.Bot
             }
 
             this.Log(
-                $"[{e.Message.Chat.Id}] "
-                + $"[{e.Message.Chat.Username}] "
-                + $"[{e.Message.Chat.FirstName} "
-                + $"{e.Message.Chat.LastName}]");
+                e.Message.Chat.Id,
+                e.Message.Chat.Username,
+                e.Message.Chat.FirstName,
+                e.Message.Chat.LastName,
+                e.Message.MessageId);
 
             switch (e.Message.Text.Trim())
             {
@@ -88,11 +90,11 @@ namespace Timetable.Bot
             }
 
             this.Log(
-                $"[{e.CallbackQuery.Message.Chat.Id}] "
-                + $"[{e.CallbackQuery.Message.Chat.Username}] "
-                + $"[{e.CallbackQuery.Message.Chat.FirstName} "
-                + $"{e.CallbackQuery.Message.Chat.LastName}] "
-                + $"[{e.CallbackQuery.Message.MessageId}]");
+                e.CallbackQuery.Message.Chat.Id,
+                e.CallbackQuery.Message.Chat.Username,
+                e.CallbackQuery.Message.Chat.FirstName,
+                e.CallbackQuery.Message.Chat.LastName,
+                e.CallbackQuery.Message.MessageId);
 
             try
             {
@@ -142,8 +144,14 @@ namespace Timetable.Bot
                 disableWebPagePreview: true).ConfigureAwait(false);
         }
 
-        private void Log(string message)
+        private void Log(long id, string userName, string firstName, string lastName, int messageId)
         {
+            userName = WebUtility.HtmlDecode(userName);
+            firstName = WebUtility.HtmlDecode(firstName);
+            lastName = WebUtility.HtmlDecode(lastName);
+
+            var message = $"[{id}] [{userName}] [{firstName} {lastName}] [{messageId}]";
+
             MissionMonitor.Publish($"{nameof(Timetable)} {message}");
             this.logger.LogInformation(message);
         }

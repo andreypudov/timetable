@@ -79,10 +79,11 @@ namespace Timetable.Bot
             }
 
             this.Log(
-                $"[{update.Message.Chat.Id}] "
-                + $"[{update.Message.Chat.Username}] "
-                + $"[{update.Message.Chat.FirstName} "
-                + $"{update.Message.Chat.LastName}]");
+                update.CallbackQuery.Message.Chat.Id,
+                update.CallbackQuery.Message.Chat.Username,
+                update.CallbackQuery.Message.Chat.FirstName,
+                update.CallbackQuery.Message.Chat.LastName,
+                update.CallbackQuery.Message.MessageId);
 
             switch (update.Message.Text.Trim())
             {
@@ -109,11 +110,11 @@ namespace Timetable.Bot
             }
 
             this.Log(
-                $"[{update.CallbackQuery.Message.Chat.Id}] "
-                + $"[{update.CallbackQuery.Message.Chat.Username}] "
-                + $"[{update.CallbackQuery.Message.Chat.FirstName} "
-                + $"{update.CallbackQuery.Message.Chat.LastName}] "
-                + $"[{update.CallbackQuery.Message.MessageId}]");
+                update.CallbackQuery.Message.Chat.Id,
+                update.CallbackQuery.Message.Chat.Username,
+                update.CallbackQuery.Message.Chat.FirstName,
+                update.CallbackQuery.Message.Chat.LastName,
+                update.CallbackQuery.Message.MessageId);
 
             try
             {
@@ -160,12 +161,18 @@ namespace Timetable.Bot
                 chatId: chatId,
                 text: (timetable.Length > 0) ? timetable : "Расписание для студенческой группы отсутствует",
                 replyMarkup: keyboard,
-                parseMode: Telegram.Bot.Types.Enums.ParseMode.MarkdownV2,
+                parseMode: ParseMode.MarkdownV2,
                 disableWebPagePreview: true).ConfigureAwait(false);
         }
 
-        private void Log(string message)
+        private void Log(long id, string userName, string firstName, string lastName, int messageId)
         {
+            userName = WebUtility.HtmlDecode(userName);
+            firstName = WebUtility.HtmlDecode(firstName);
+            lastName = WebUtility.HtmlDecode(lastName);
+
+            var message = $"[{id}] [{userName}] [{firstName} {lastName}] [{messageId}]";
+
             MissionMonitor.Publish($"{nameof(Timetable)} {message}");
             this.logger.LogInformation(message);
         }
