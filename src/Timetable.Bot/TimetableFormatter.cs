@@ -5,6 +5,7 @@
 namespace Timetable.Bot
 {
     using System;
+    using System.Collections.Generic;
     using System.Net;
     using System.Text;
     using HtmlAgilityPack;
@@ -46,7 +47,7 @@ namespace Timetable.Bot
                     builder
                         .Append($"*{GetInnerTextValue(columns[1])}*\n")
                         .Append($"```{GetInnerTextValue(columns[0])}```\n")
-                        .Append($"{GetInnerTextValue(columns[3])}\n");
+                        .Append($"{GetInnerTextValue(columns[3])} {GetTeacherEmoji(GetInnerTextValue(columns[3]))}\n");
 
                     if (string.IsNullOrEmpty(columns[5].InnerText) == false)
                     {
@@ -82,6 +83,18 @@ namespace Timetable.Bot
         private static string GetInnerTextValue(HtmlNode node)
         {
             return WebUtility.HtmlDecode(node.InnerText.Trim());
+        }
+
+        private static string GetTeacherEmoji(string name)
+        {
+            var map = new Dictionary<string, string>
+            {
+                { "Дуцев Михаил Викторович", "👨‍🎨" },
+                { "Гребенников Александр Валентинович", "🕺" },
+                { "Орлова Людмила Николаевна", "👩‍⚖️" },
+            };
+
+            return map.GetValueOrDefault(name) ?? string.Empty;
         }
     }
 }
