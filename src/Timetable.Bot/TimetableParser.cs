@@ -17,15 +17,20 @@ namespace Timetable.Bot
     /// </summary>
     public static class TimetableParser
     {
+        private const string GeneralUrl = "http://nngasu.ru/cdb/schedule/student.php?login=yes";
+        private const string SesssionUrl = "http://nngasu.ru/cdb/schedule/session-student.php?login=yes";
+
         /// <summary>
         /// Parsers the web page and returns the string representation of the timetable for the first available day.
         /// </summary>
         /// <param name="login">The login to access the timetable data.</param>
         /// <param name="password">The password to access the timetable data.</param>
+        /// <param name="timetableType">The type of the timetable to return.</param>
         /// <returns>The string representation of the timetable for the first available day.</returns>
-        public static async Task<string> GetAsync(string login, string password)
+        public static async Task<string> GetAsync(string login, string password, TimetableType timetableType)
         {
-            var baseUrl = "http://nngasu.ru/cdb/schedule/student.php?login=yes";
+            var baseUrl = (timetableType == TimetableType.General) ? GeneralUrl : SesssionUrl;
+
             var formVariables = new List<KeyValuePair<string?, string?>>
             {
                 new KeyValuePair<string?, string?>("AUTH_FORM", "Y"),

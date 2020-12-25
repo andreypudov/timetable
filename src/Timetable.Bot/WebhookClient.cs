@@ -89,7 +89,11 @@ namespace Timetable.Bot
             {
                 case "/start":
                 case "/timetable":
-                    await this.OnTimetableAsync(update.Message.Chat.Id)
+                    await this.OnTimetableAsync(update.Message.Chat.Id, TimetableType.General)
+                        .ConfigureAwait(false);
+                    break;
+                case "/session":
+                    await this.OnTimetableAsync(update.Message.Chat.Id, TimetableType.Session)
                         .ConfigureAwait(false);
                     break;
                 default:
@@ -131,7 +135,11 @@ namespace Timetable.Bot
             {
                 case "start":
                 case "timetable":
-                    await this.OnTimetableAsync(update.CallbackQuery.Message.Chat.Id)
+                    await this.OnTimetableAsync(update.CallbackQuery.Message.Chat.Id, TimetableType.General)
+                        .ConfigureAwait(false);
+                    break;
+                case "session":
+                    await this.OnTimetableAsync(update.CallbackQuery.Message.Chat.Id, TimetableType.Session)
                         .ConfigureAwait(false);
                     break;
                 default:
@@ -144,10 +152,10 @@ namespace Timetable.Bot
             }
         }
 
-        private async Task OnTimetableAsync(long chatId)
+        private async Task OnTimetableAsync(long chatId, TimetableType timetableType)
         {
-            var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password);
-            timetable = TimetableFormatter.Format(timetable);
+            var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password, timetableType);
+            timetable = TimetableFormatter.Format(timetable, timetableType);
 
             var keyboard = new InlineKeyboardMarkup(new[]
             {

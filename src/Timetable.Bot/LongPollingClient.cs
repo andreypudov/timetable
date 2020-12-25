@@ -69,7 +69,11 @@ namespace Timetable.Bot
             {
                 case "/start":
                 case "/timetable":
-                    await this.OnTimetableAsync(e.Message.Chat.Id)
+                    await this.OnTimetableAsync(e.Message.Chat.Id, TimetableType.General)
+                        .ConfigureAwait(false);
+                    break;
+                case "/session":
+                    await this.OnTimetableAsync(e.Message.Chat.Id, TimetableType.Session)
                         .ConfigureAwait(false);
                     break;
                 default:
@@ -111,7 +115,11 @@ namespace Timetable.Bot
             {
                 case "start":
                 case "timetable":
-                    await this.OnTimetableAsync(e.CallbackQuery.Message.Chat.Id)
+                    await this.OnTimetableAsync(e.CallbackQuery.Message.Chat.Id, TimetableType.General)
+                        .ConfigureAwait(false);
+                    break;
+                case "session":
+                    await this.OnTimetableAsync(e.CallbackQuery.Message.Chat.Id, TimetableType.Session)
                         .ConfigureAwait(false);
                     break;
                 default:
@@ -123,16 +131,20 @@ namespace Timetable.Bot
             }
         }
 
-        private async Task OnTimetableAsync(long chatId)
+        private async Task OnTimetableAsync(long chatId, TimetableType timetableType)
         {
-            var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password);
-            timetable = TimetableFormatter.Format(timetable);
+            var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password, timetableType);
+            timetable = TimetableFormatter.Format(timetable, timetableType);
 
             var keyboard = new InlineKeyboardMarkup(new[]
             {
                 new[]
                 {
-                    new InlineKeyboardButton() { Text = "Повторить запрос", CallbackData = "timetable" },
+                    new InlineKeyboardButton()
+                    {
+                        Text = "Повторить запрос",
+                        CallbackData = (timetableType == TimetableType.General) ? "timetable" : "session",
+                    },
                 },
             });
 

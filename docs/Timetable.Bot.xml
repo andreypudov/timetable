@@ -79,16 +79,47 @@
             Represents query to receive a five-days weather forecast.
             </summary>
         </member>
+        <member name="T:Timetable.Bot.SessionTimetableColumns">
+            <summary>
+            Represents the index values for the columns of the session timetable.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.SessionTimetableColumns.Time">
+            <summary>
+            The time of the class.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.SessionTimetableColumns.Class">
+            <summary>
+            The name of the class.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.SessionTimetableColumns.Teacher">
+            <summary>
+            The name of the teacher.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.SessionTimetableColumns.Link">
+            <summary>
+            The link to the class.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.SessionTimetableColumns.Description">
+            <summary>
+            The value of the description.
+            </summary>
+        </member>
         <member name="T:Timetable.Bot.TimetableFormatter">
             <summary>
             Timetable formatter that returns a markdown-formatted representation.
             </summary>
         </member>
-        <member name="M:Timetable.Bot.TimetableFormatter.Format(System.String)">
+        <member name="M:Timetable.Bot.TimetableFormatter.Format(System.String,Timetable.Bot.TimetableType)">
             <summary>
             Formats a given timetable to markdown representation.
             </summary>
             <param name="timetable">The HTML representation of the timetable.</param>
+            <param name="timetableType">The type of the timetable to return.</param>
             <returns>The markdown representation of the given timetable.</returns>
         </member>
         <member name="T:Timetable.Bot.TimetableParser">
@@ -96,13 +127,29 @@
             Represents the web parser for the source data.
             </summary>
         </member>
-        <member name="M:Timetable.Bot.TimetableParser.GetAsync(System.String,System.String)">
+        <member name="M:Timetable.Bot.TimetableParser.GetAsync(System.String,System.String,Timetable.Bot.TimetableType)">
             <summary>
             Parsers the web page and returns the string representation of the timetable for the first available day.
             </summary>
             <param name="login">The login to access the timetable data.</param>
             <param name="password">The password to access the timetable data.</param>
+            <param name="timetableType">The type of the timetable to return.</param>
             <returns>The string representation of the timetable for the first available day.</returns>
+        </member>
+        <member name="T:Timetable.Bot.TimetableType">
+            <summary>
+            Represents available types of the timetable.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.TimetableType.General">
+            <summary>
+            Timetable for weekly classes.
+            </summary>
+        </member>
+        <member name="F:Timetable.Bot.TimetableType.Session">
+            <summary>
+            Timetable for for examination session.
+            </summary>
         </member>
         <member name="T:Timetable.Bot.WebhookClient">
             <summary>
