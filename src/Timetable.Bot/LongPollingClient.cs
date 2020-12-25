@@ -75,7 +75,7 @@ namespace Timetable.Bot
                 default:
                     await this.client.SendTextMessageAsync(
                         chatId: e.Message.Chat,
-                        text: $"Invalid command: {e.Message.Text}")
+                        text: $"Неверная команда: {e.Message.Text}\nИспользуйте /timetable для получения прогноза погоды.")
                         .ConfigureAwait(false);
 
                     break;
@@ -117,7 +117,7 @@ namespace Timetable.Bot
                 default:
                     await this.client.SendTextMessageAsync(
                         chatId: e.CallbackQuery.Message.Chat,
-                        text: $"Invalid command: {e.CallbackQuery.Data}")
+                        text: $"Неверная команда: {e.CallbackQuery.Data}\nИспользуйте /timetable для получения прогноза погоды.")
                         .ConfigureAwait(false);
                     break;
             }

@@ -79,11 +79,11 @@ namespace Timetable.Bot
             }
 
             this.Log(
-                update.CallbackQuery.Message.Chat.Id,
-                update.CallbackQuery.Message.Chat.Username,
-                update.CallbackQuery.Message.Chat.FirstName,
-                update.CallbackQuery.Message.Chat.LastName,
-                update.CallbackQuery.Message.MessageId);
+                update.Message.Chat.Id,
+                update.Message.Chat.Username,
+                update.Message.Chat.FirstName,
+                update.Message.Chat.LastName,
+                update.Message.MessageId);
 
             switch (update.Message.Text.Trim())
             {
@@ -95,7 +95,7 @@ namespace Timetable.Bot
                 default:
                     await this.client.SendTextMessageAsync(
                             chatId: update.Message.Chat,
-                            text: $"Invalid command: {update.Message.Text}")
+                            text: $"Неверная команда: {update.Message.Text}\nИспользуйте /timetable для получения прогноза погоды.")
                         .ConfigureAwait(false);
 
                     break;
@@ -137,7 +137,7 @@ namespace Timetable.Bot
                 default:
                     await this.client.SendTextMessageAsync(
                             chatId: update.CallbackQuery.Message.Chat,
-                            text: $"Invalid command: {update.CallbackQuery.Data}")
+                            text: $"Неверная команда: {update.CallbackQuery.Data}\nИспользуйте /timetable для получения прогноза погоды.")
                         .ConfigureAwait(false);
 
                     break;
