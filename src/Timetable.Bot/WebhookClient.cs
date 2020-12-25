@@ -161,7 +161,11 @@ namespace Timetable.Bot
             {
                 new[]
                 {
-                    new InlineKeyboardButton() { Text = "Повторить запрос", CallbackData = "timetable" },
+                    new InlineKeyboardButton()
+                    {
+                        Text = "Повторить запрос",
+                        CallbackData = (timetableType == TimetableType.General) ? "timetable" : "session",
+                    },
                 },
             });
 

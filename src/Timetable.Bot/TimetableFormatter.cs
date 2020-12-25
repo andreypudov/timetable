@@ -6,8 +6,10 @@ namespace Timetable.Bot
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Net;
     using System.Text;
+    using System.Text.RegularExpressions;
     using HtmlAgilityPack;
 
     /// <summary>
@@ -89,15 +91,26 @@ namespace Timetable.Bot
             document.LoadHtml(timetable);
 
             var rows = document.DocumentNode.SelectNodes("(//div[contains(@id, 'schedule-student-container')]//table//tr)");
+            var dayToPass = false;
 
             foreach (var row in rows)
             {
                 var columns = row.SelectNodes("td");
                 if (columns?.Count == 1)
                 {
-                    builder.Append($"*{GetInnerTextValue(columns[(int)SessionTimetableColumns.Time]).ToUpperInvariant()}*\n\n");
+                    var title = GetInnerTextValue(columns[(int)SessionTimetableColumns.Time])
+                        .ToUpperInvariant();
+                    var date = GetDateFromString(title);
+                    if (date < DateTime.Today)
+                    {
+                        dayToPass = true;
+                        continue;
+                    }
+
+                    builder.Append($"*{title}*\n\n");
+                    dayToPass = false;
                 }
-                else if (columns?.Count == 5)
+                else if (columns?.Count == 5 && dayToPass == false)
                 {
                     builder
                         .Append($"*{GetInnerTextValue(columns[(int)SessionTimetableColumns.Class])}*\n")
@@ -139,6 +152,22 @@ namespace Timetable.Bot
                 .Replace("(", "\\(", StringComparison.InvariantCulture)
                 .Replace(")", "\\)", StringComparison.InvariantCulture)
                 .Replace("=", "\\=", StringComparison.InvariantCulture);
+        }
+
+        private static DateTime? GetDateFromString(string value)
+        {
+            var regex = new Regex(@"\b\d{2}\.\d{2}.\d{4}\b");
+
+            foreach (Match? match in regex.Matches(value))
+            {
+                if ((match != null)
+                    && DateTime.TryParseExact(match.Value, "dd.MM.yyyy", null, DateTimeStyles.None, out DateTime date))
+                {
+                    return date;
+                }
+            }
+
+            return null;
         }
 
         private static string GetInnerTextValue(HtmlNode node)
