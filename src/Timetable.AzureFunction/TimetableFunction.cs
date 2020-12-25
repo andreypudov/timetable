@@ -12,6 +12,7 @@ namespace Timetable.AzureFunction
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
     using Timetable.Bot;
+    using Timetable.Bot.Clients;
 
     /// <summary>
     /// Represents the Azure function processes requests from a Telegram client.

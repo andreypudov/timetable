@@ -10,6 +10,7 @@ namespace Timetable.Bot
     using Microsoft.Extensions.Logging;
     using NLog;
     using NLog.Extensions.Logging;
+    using Timetable.Bot.Clients;
 
     /// <summary>
     /// An entry point of the application.

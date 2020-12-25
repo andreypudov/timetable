@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace Timetable.Bot
+namespace Timetable.Bot.Types
 {
     /// <summary>
     /// Represents the index values for the columns of the session timetable.

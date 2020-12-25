@@ -2,10 +2,9 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace Timetable.Bot
+namespace Timetable.Bot.Helpers
 {
     using System;
-    using System.IO;
     using System.Net;
     using System.Threading.Tasks;
 

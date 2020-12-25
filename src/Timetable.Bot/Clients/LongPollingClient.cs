@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace Timetable.Bot
+namespace Timetable.Bot.Clients
 {
     using System;
     using System.Net;
@@ -12,6 +12,8 @@ namespace Timetable.Bot
     using Telegram.Bot;
     using Telegram.Bot.Args;
     using Telegram.Bot.Types.ReplyMarkups;
+    using Timetable.Bot.Helpers;
+    using Timetable.Bot.Types;
 
     /// <summary>
     /// Represents the handler of web hook requests.
