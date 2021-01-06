@@ -14,6 +14,7 @@ namespace Timetable.Bot.Clients
     using Telegram.Bot.Types.ReplyMarkups;
     using Timetable.Bot.Helpers;
     using Timetable.Bot.Types;
+    using Authorization = Timetable.Bot.Helpers.Authorization;
 
     /// <summary>
     /// Represents the handler of web hook requests.
@@ -60,6 +61,11 @@ namespace Timetable.Bot.Clients
                 return;
             }
 
+            if (Authorization.IsAuthorized(e.Message.Chat.FirstName + " " + e.Message.Chat.LastName) == false)
+            {
+                return;
+            }
+
             this.Log(
                 e.Message.Chat.Id,
                 e.Message.Chat.Username,
@@ -83,7 +89,6 @@ namespace Timetable.Bot.Clients
                         chatId: e.Message.Chat,
                         text: $"Неверная команда: {e.Message.Text}\nИспользуйте /timetable для получения прогноза погоды.")
                         .ConfigureAwait(false);
-
                     break;
             }
         }
@@ -91,6 +96,11 @@ namespace Timetable.Bot.Clients
         private async void OnCallbackQueryHandler(object? sender, CallbackQueryEventArgs e)
         {
             if (string.IsNullOrEmpty(e.CallbackQuery.Data))
+            {
+                return;
+            }
+
+            if (Authorization.IsAuthorized(e.CallbackQuery.Message.Chat.FirstName + " " + e.CallbackQuery.Message.Chat.LastName) == false)
             {
                 return;
             }
@@ -135,9 +145,21 @@ namespace Timetable.Bot.Clients
 
         private async Task OnTimetableAsync(long chatId, TimetableType timetableType)
         {
-            var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password, timetableType);
-            timetable = TimetableFormatter.Format(timetable, timetableType);
+            try
+            {
+                var timetable = await TimetableParser.GetAsync(this.configuration.Login, this.configuration.Password, timetableType);
+                timetable = TimetableFormatter.Format(timetable, timetableType);
+                await this.ReplyAsync(chatId, (timetable.Length > 0) ? timetable : "Расписание для студенческой группы отсутствует", timetableType);
+            }
+            catch (Exception e)
+            {
+                this.logger.LogError($"{nameof(LongPollingClient)} OnTimetableAsync {e.Message}");
+                await this.ReplyAsync(chatId, "Не удалось получить информацию о расписании для студенческой группы", timetableType);
+            }
+        }
 
+        private async Task ReplyAsync(long chatId, string message, TimetableType timetableType)
+        {
             var keyboard = new InlineKeyboardMarkup(new[]
             {
                 new[]
@@ -152,7 +174,7 @@ namespace Timetable.Bot.Clients
 
             await this.client.SendTextMessageAsync(
                 chatId: chatId,
-                text: (timetable.Length > 0) ? timetable : "Расписание для студенческой группы отсутствует",
+                text: message,
                 replyMarkup: keyboard,
                 parseMode: Telegram.Bot.Types.Enums.ParseMode.MarkdownV2,
                 disableWebPagePreview: true).ConfigureAwait(false);

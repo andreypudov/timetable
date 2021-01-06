@@ -60,6 +60,18 @@
             Gets or sets password to access timetable information.
             </summary>
         </member>
+        <member name="T:Timetable.Bot.Helpers.Authorization">
+            <summary>
+            Provides helper methods for authorization.
+            </summary>
+        </member>
+        <member name="M:Timetable.Bot.Helpers.Authorization.IsAuthorized(System.String)">
+            <summary>
+            Determines the access for provided user name.
+            </summary>
+            <param name="username">The vaue of the user name.</param>
+            <returns><c>true</c> if provied user name is able to get access, and <c>false</c> otherwise.</returns>
+        </member>
         <member name="T:Timetable.Bot.Helpers.MissionMonitor">
             <summary>
             Represents the mission monitor.

@@ -40,6 +40,11 @@ namespace Timetable.Bot.Helpers
             var rows = document.DocumentNode.SelectNodes("(//div[contains(@id, 'schedule-student-container')]//table//tr)");
             var titleAdded = false;
 
+            if (rows is null)
+            {
+                return string.Empty;
+            }
+
             foreach (var row in rows)
             {
                 var columns = row.SelectNodes("td");
@@ -89,6 +94,11 @@ namespace Timetable.Bot.Helpers
 
             var rows = document.DocumentNode.SelectNodes("(//div[contains(@id, 'schedule-student-container')]//table//tr)");
             var dayToPass = false;
+
+            if (rows is null)
+            {
+                return string.Empty;
+            }
 
             foreach (var row in rows)
             {
