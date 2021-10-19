@@ -18,8 +18,8 @@ namespace Timetable.Bot.Helpers
     /// </summary>
     public static class TimetableParser
     {
-        private const string GeneralUrl = "http://nngasu.ru/cdb/schedule/student.php?login=yes";
-        private const string SesssionUrl = "http://nngasu.ru/cdb/schedule/session-student.php?login=yes";
+        private const string GeneralUrl = "https://nngasu.ru/cdb/schedule/student.php?login=yes";
+        private const string SesssionUrl = "https://nngasu.ru/cdb/schedule/session-student.php?login=yes";
 
         /// <summary>
         /// Parsers the web page and returns the string representation of the timetable for the first available day.
@@ -32,54 +32,40 @@ namespace Timetable.Bot.Helpers
         {
             var baseUrl = (timetableType == TimetableType.General) ? GeneralUrl : SesssionUrl;
 
-            var formVariables = new List<KeyValuePair<string?, string?>>
-            {
-                new KeyValuePair<string?, string?>("AUTH_FORM", "Y"),
-                new KeyValuePair<string?, string?>("TYPE", "AUTH"),
-                new KeyValuePair<string?, string?>("backurl", "/cdb/schedule/student.php"),
-                new KeyValuePair<string?, string?>("USER_LOGIN", login),
-                new KeyValuePair<string?, string?>("USER_PASSWORD", password),
-                new KeyValuePair<string?, string?>("Login", "%C2%EE%E9%F2%E8"),
-            };
-
-            var cookieContainer = new CookieContainer();
             var timetableUrl = string.Empty;
-            var formContent = new FormUrlEncodedContent(formVariables);
-
             string timetable = string.Empty;
 
-            using (var handler = new HttpClientHandler() { CookieContainer = cookieContainer })
+            using var client = new HttpClient();
             {
-                using var client = new HttpClient(handler, false);
+                var authHeader = new UTF8Encoding().GetBytes($"{login}:{password}");
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(authHeader));
+
+                using var response = await client.GetAsync(new Uri(baseUrl));
+                if (response.IsSuccessStatusCode)
                 {
-                    using var message = new HttpRequestMessage { Method = HttpMethod.Post, RequestUri = new Uri(baseUrl), Content = formContent };
-                    using var response = await client.SendAsync(message);
-                    if (response.IsSuccessStatusCode)
+                    var buffer = await response.Content.ReadAsByteArrayAsync();
+                    var encoding = Encoding.GetEncoding("windows-1251");
+                    var responseString = encoding.GetString(buffer, 0, buffer.Length);
+
+                    var document = new HtmlDocument();
+                    document.LoadHtml(responseString);
+
+                    var timetableIFrame = document.DocumentNode.SelectNodes("(//iframe[@id='diploma-iframe'])");
+                    if (timetableIFrame.Count > 0)
                     {
-                        var buffer = await response.Content.ReadAsByteArrayAsync();
-                        var encoding = Encoding.GetEncoding("windows-1251");
-                        var responseString = encoding.GetString(buffer, 0, buffer.Length);
-
-                        var document = new HtmlDocument();
-                        document.LoadHtml(responseString);
-
-                        var timetableIFrame = document.DocumentNode.SelectNodes("(//iframe[@id='diploma-iframe'])");
-                        if (timetableIFrame.Count > 0)
-                        {
-                            timetableUrl = timetableIFrame[0].Attributes["src"].Value;
-                        }
+                        timetableUrl = timetableIFrame[0].Attributes["src"].Value;
                     }
+                }
 
-                    using var message2 = new HttpRequestMessage
-                    {
-                        Method = HttpMethod.Get,
-                        RequestUri = new Uri(timetableUrl),
-                    };
-                    using var response2 = await client.SendAsync(message2);
-                    if (response2.IsSuccessStatusCode)
-                    {
-                        timetable = await response2.Content.ReadAsStringAsync();
-                    }
+                using var message2 = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(timetableUrl),
+                };
+                using var response2 = await client.SendAsync(message2);
+                if (response2.IsSuccessStatusCode)
+                {
+                    timetable = await response2.Content.ReadAsStringAsync();
                 }
             }
 
